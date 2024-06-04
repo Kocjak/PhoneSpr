@@ -25,7 +25,7 @@ def input_data():
             f.write(f"{name};{surname};{phone};{address}\n\n")
 
 def print_data():
-    print('Вывожу данные из 1 файла: \n')
+    print('\nВывожу данные из 1 файла: \n')
     with open('data_first_variant.csv','r',encoding='utf-8') as f:
         data_first = f.readlines()
         data_first_list=[]
@@ -34,10 +34,48 @@ def print_data():
         for i in range(len(data_first)):
             if data_first[i] ==  '\n' or i == len(data_first) - 1:
                 data_first_list.append(''.join(data_first[j:i+1]))
-                j=1
+                j=i
         print(''.join(data_first_list))
 
-    print('Вывожу данные из 2 файла: \n')
+    print('\nВывожу данные из 2 файла: \n')
     with open('data_second_variant.csv','r',encoding='utf-8') as f:
         data_second = f.readlines()
         print(*data_second)
+
+
+def delete_data():
+
+    
+    str = []
+    var = int(input(f"\nВ каком файле необходимо удалить запись?\n" 
+                f"Выберите вариант: "))
+
+    if var == 1:
+        with open('data_first_variant.csv','r',encoding='utf-8') as f:
+            str = f.readlines()
+        with open('data_first_variant.csv','r',encoding='utf-8') as f:
+            for i, line in enumerate(f): print(i+1, line)
+            print("Какую строку удаляем?")
+            str_num = int(input('Введите номер строки: '))
+        with open('data_first_variant.csv','w',encoding='utf-8') as f:
+            for i, line in enumerate(str):
+                if i not in [str_num-1]:
+                    f.write(line)         
+
+    elif var == 2:
+        with open('data_second_variant.csv','r',encoding='utf-8') as f:
+            str = f.readlines()
+        with open('data_second_variant.csv','r',encoding='utf-8') as f:
+            for i, line in enumerate(f): print(i+1, line)
+            print("Какую строку удаляем?")
+            str_num = int(input('Введите номер строки: '))
+        with open('data_second_variant.csv','w',encoding='utf-8') as f:
+            for i, line in enumerate(str):
+                if i not in [str_num-1]:
+                    f.write(line)
+
+
+def replace_data():
+
+    var = int(input(f"\nВ каком файле необходимо заменить запись?\n" 
+                f"Выберите вариант: "))
