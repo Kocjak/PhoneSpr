@@ -79,3 +79,32 @@ def replace_data():
 
     var = int(input(f"\nВ каком файле необходимо заменить запись?\n" 
                 f"Выберите вариант: "))
+    
+    if var == 1:
+        old_text = input(f"\nКакое значение нужно заменить?\n" 
+                f"Введите значение: ")
+        
+        new_text = input(f"\nНа какое нужно заменить?\n" 
+                f"Введите значение: ")
+        
+        with open('data_first_variant.csv','r',encoding='utf-8') as f:
+            str = f.read()
+            str = str.replace(old_text, new_text)
+        
+        with open('data_first_variant.csv','w',encoding='utf-8') as f:
+            f.write(str)
+
+    elif var == 2:
+        old_text = input(f"\nКакое значение нужно заменить?\n" 
+                f"Введите значение: ")
+        
+        new_text = input(f"\nНа какое нужно заменить?\n" 
+                f"Введите значение: ")
+        
+        with open('data_second_variant.csv','r',encoding='utf-8') as f:
+            str = f.read()
+            str = str.replace(old_text, new_text)
+        
+        with open('data_second_variant.csv','w',encoding='utf-8') as f:
+            f.write(str)
+        

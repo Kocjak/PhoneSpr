@@ -1,4 +1,4 @@
-from logger import input_data, print_data, delete_data
+from logger import input_data, print_data, delete_data,replace_data
 
 def interface():
     print("Добрый день! Вы попали на специальный бот от GeekBrains! \n 1 - запись данных \n 2 - вывод данных \n 3 - удаление записи \n 4 - замена записи")
@@ -14,3 +14,5 @@ def interface():
         print_data()
     elif command ==3:
         delete_data()
+    elif command ==4:
+        replace_data()
